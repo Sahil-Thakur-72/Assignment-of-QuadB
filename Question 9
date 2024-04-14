@@ -1,0 +1,11 @@
+9. Reverse a string in Rust
+CODE:
+fn main() {
+    let s = String::from("hello");
+    let reversed = reverse_string(&s);
+    println!("Reversed string: {}", reversed);
+}
+
+fn reverse_string(s: &str) -> String {
+    s.chars().rev().collect()
+}
