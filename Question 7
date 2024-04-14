@@ -1,0 +1,19 @@
+7. Implement a function that returns the kth smallest element in a given array.
+CODE:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int kthSmallest(vector<int>& nums, int k) {
+    sort(nums.begin(), nums.end());
+    return nums[k - 1];
+}
+
+int main() {
+    vector<int> nums = {3, 1, 4, 2, 5};
+    int k = 2;
+    cout << "The " << k << "th smallest element is: " << kthSmallest(nums, k) << endl;
+    return 0;
+}
