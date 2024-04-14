@@ -1,0 +1,23 @@
+1.	Implement a function that checks whether a given string is a palindrome or not.
+
+CODE:
+#include <iostream>
+#include <string>
+#include <algorithm> 
+#include <cctype>
+
+using namespace std;
+
+bool is_palindrome(const string &text) {
+    string clean_text;
+    copy_if(text.begin(), text.end(), back_inserter(clean_text), 
+            [](char c){ return isalnum(c); });
+    transform(clean_text.begin(), clean_text.end(), clean_text.begin(), ::tolower);
+
+    return equal(clean_text.begin(), clean_text.begin() + clean_text.size()/2, clean_text.rbegin());
+}
+
+int main() {
+    cout << is_palindrome("A man, a plan, a canal. Panama") << endl; // 1 (true)
+    cout << is_palindrome("hello world") << endl;                    // 0 (false)
+}
