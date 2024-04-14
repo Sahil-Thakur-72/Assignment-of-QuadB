@@ -1,0 +1,27 @@
+3. Given a string of words, implement a function that returns the shortest word in
+the string.
+CODE:
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <limits>
+
+using namespace std;
+
+string find_shortest_word(const string &text) {
+    string shortest_word;
+    string word;
+    stringstream ss(text);
+
+    shortest_word.clear(); // Initialize with empty string
+    while (ss >> word) {
+        if (shortest_word.empty() || word.length() < shortest_word.length()) {
+            shortest_word = word;
+        }
+    }
+    return shortest_word;
+}
+
+int main() {
+    cout << find_shortest_word("This is a sample sentence") << endl; // a
+}
